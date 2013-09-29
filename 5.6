@@ -1,0 +1,7 @@
+cd $LFS/sources
+tar -xJf linux-3.10.10.tar.xz
+cd linux-3.10.10
+make mrproper
+make headers_check
+make INSTALL_HDR_PATH=dest headers_install
+cp -rv dest/include/* /tools/include

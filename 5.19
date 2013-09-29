@@ -1,0 +1,10 @@
+# Chapter 5.19 of LFS 7.4
+# Installation of Diffutils
+cd $LFS/sources
+tar -xJf diffutils-3.3.tar.xz
+cd diffutils-3.3
+./configure --prefix=/tools
+make
+make install
+cd $LFS/sources
+rm -rf diffutils-3.3

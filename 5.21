@@ -1,0 +1,11 @@
+# Chapter 5.21 of LFS 7.4
+# Installation of Findutils
+cd $LFS/sources
+tar -xzf findutils-4.4.2.tar.gz
+cd findutils-4.4.2
+./configure --prefix=/tools
+make
+make check
+make install
+cd $LFS/sources
+rm -rf findutils-4.4.2

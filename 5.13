@@ -1,0 +1,10 @@
+# Chapter 5.13 of LFS 7.4
+# Installation of DejaGNU
+cd $LFS/sources
+tar -xzf dejagnu-1.5.1.tar.gz
+cd dejagnu-1.5.1
+./configure --prefix=/tools
+make install
+make check
+cd ../
+rm -rf dejagnu-1.5.1

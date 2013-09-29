@@ -1,0 +1,11 @@
+# Chapter 5.14 of LFS 7.4
+# Installation of Check
+cd $LFS/sources
+tar -xzf check-0.9.10.tar.gz
+cd check-0.9.10
+./configure --prefix=/tools
+make
+make check
+make install
+cd $LFS/sources
+rm -rf check-0.9.10

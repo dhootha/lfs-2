@@ -1,0 +1,11 @@
+# Chapter 5.22 of LFS 7.4
+# Installation of Gawk
+cd $LFS/sources
+tar -xJf gawk-4.1.0.tar.xz
+cd gawk-4.1.0
+./configure --prefix=/tools
+make
+make check
+make install
+cd $LFS/sources
+rm -rf gawk-4.1.0

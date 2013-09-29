@@ -1,0 +1,10 @@
+# Chapter 5.18 of LFS 7.4
+# Installation of Coreutils
+cd $LFS/sources
+tar -xJf coreutils-8.21.tar.xz
+cd coreutils-8.21
+./configure --prefix=/tools --enable-install-program=hostname
+make
+make install
+cd $LFS/sources
+rm -rf coreutils-8.21

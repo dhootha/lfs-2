@@ -1,0 +1,11 @@
+# Chapter 5.15 of LFS 7.4
+# Installation of Ncurses
+cd $LFS/sources
+tar -xzf ncurses-5.9.tar.gz
+cd ncurses-5.9
+./configure --prefix=/tools --with-shared \
+  --without-debug --without-ada --enable-overwrite
+make
+make install
+cd $LFS/sources
+rm -rf ncurses-5.9

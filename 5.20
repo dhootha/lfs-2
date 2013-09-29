@@ -1,0 +1,11 @@
+# Chapter 5.20 of LFS 7.4
+# Installation of File
+cd $LFS/sources
+tar -xzf file-5.14.tar.gz
+cd file-5.14
+./configure --prefix=/tools
+make
+make check
+make install
+cd ../
+rm -rf file-5.14

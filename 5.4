@@ -1,0 +1,11 @@
+cd $LFS/sources
+tar -xjvf binutils-2.23.2.tar.bz2
+cd binutils-2.23.2
+sed -i -e 's/@colophon/@@colophon/' \
+       -e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo
+mkdir -v ../binutils-build
+cd ../binutils-build
+cp /home/logan/lfs/time_binutils_sbu.sh ./
+chmod +x time_binutils_sbu.sh
+./time_binutils_sbu.sh
+

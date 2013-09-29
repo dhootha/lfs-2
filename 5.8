@@ -1,0 +1,22 @@
+#!/bin/bash
+# capturing steps of secion 5.8 from LFS 7.4 to build libstdc++
+
+cd $LFS/sources
+rm -rf gcc-4.8.1
+tar -xjf gcc-4.8.1.tar.bz2
+mkdir -pv gcc-build
+cd gcc-build
+../gcc-4.8.1/libstdc++-v3/configure \
+    --host=$LFS_TGT                     \
+    --prefix=/tools                     \
+    --disable-multilib                  \
+    --disable-shared                    \
+    --disable-nls                       \
+    --disable-libstdcxx-threads         \
+    --disable-libstdcxx-pch             \
+    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/4.8.1
+make
+make install
+cd $LFS/sources
+rm -rf gcc-build
+rm -rf gcc-4.8.1
