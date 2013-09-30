@@ -1,0 +1,11 @@
+# Chapter 5.32 of LFS 7.4
+# Installation of Texinfo
+cd $LFS/sources
+tar -xJf texinfo-5.1.tar.xz
+cd texinfo-5.1
+./configure --prefix=/tools
+make
+make check
+make install
+cd ..
+rm -rf texinfo-5.1

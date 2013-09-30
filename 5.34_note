@@ -1,0 +1,5 @@
+A quick note on chapter 5.34:
+I had to follow this step manually as the following command:
+strip --strip-debug /tools/lib/*
+seg faulted.
+The remainder steps succeeded and I have 3.3GB of space on $LFS

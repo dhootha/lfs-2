@@ -1,0 +1,16 @@
+# Chapter 6.9 of LFS 7.4
+# Installation of Gzip
+cd /sources
+tar -xJf glibc-2.18.tar.xz
+cd glibc-2.18
+sed -i -e 's/static __m128i/inline &/' sysdeps/x86_64/multiarch/strstr.c
+mkdir -v ../glibc-build
+cd ../glibc-build
+../glibc-2.18/configure     \
+    --prefix=/usr           \
+    --disable-profile       \
+    --enable-kernel=2.6.32  \
+    --libexecdir=/usr/lib/glibc
+make
+make -k check 2>&1 | tee glibc-check-log
+grep Error glibc-check-log

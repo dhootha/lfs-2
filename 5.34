@@ -1,0 +1,6 @@
+# Chapter 5.34 of LFS 7.4
+# Stripping unnecessary debugging symbols and documentation
+cd $LFS/sources
+strip --strip-debug /tools/lib/*
+strip --strip-unneeded /tools/{,s}bin/*
+rm -rf /tools/{,share}/{info,man,doc}

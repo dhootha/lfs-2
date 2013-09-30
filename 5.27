@@ -1,0 +1,11 @@
+# Chapter 5.27 of LFS 7.4
+# Installation of Make
+cd $LFS/sources
+tar -xjf make-3.82.tar.bz2
+cd make-3.82
+./configure --prefix=/tools
+make
+make check
+make install
+cd $LFS/sources
+rm -rf make-3.82

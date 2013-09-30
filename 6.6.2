@@ -1,0 +1,7 @@
+# Chapter 6.6 of LFS 7.4
+# Creating Essential Files and Symlinks
+# Part 2, after exec bash login +h 
+touch /var/log/{btmp,lastlog,wtmp}
+chgrp -v utmp /var/log/lastlog
+chmod -v 664 /var/log/lastlog
+chmod -v 600 /var/log/btmp

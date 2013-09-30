@@ -1,0 +1,9 @@
+# Chapter 5.28 from LFS 7.4
+# Installation of Patch
+cd $LFS/sources
+tar -xJf patch-2.7.1.tar.xz 
+cd patch-2.7.1
+./configure --prefix=/tools
+make && make check && make install
+cd $LFS/sources
+rm -rf patch-2.7.1

@@ -1,0 +1,11 @@
+# Chapter 5.25 of LFS 7.4
+# Installation of Gzip
+cd $LFS/sources
+tar -xJF gzip-1.6.tar.xz
+cd gzip-1.6
+./configure --prefix=/tools
+make
+make check
+make install
+cd $LFS/sources
+rm -rf gzip-1.6

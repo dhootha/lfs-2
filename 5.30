@@ -1,0 +1,11 @@
+# Chapter 5.30 of LFS 7.4
+# Installation of Sed
+cd $LFS/sources
+tar -xjf sed-4.2.2.tar.bz2 
+cd sed-4.2.2
+./configure --prefix=/tools
+make
+make check
+make install
+cd ../
+rm -rf sed-4.2.2

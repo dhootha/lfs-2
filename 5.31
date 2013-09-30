@@ -1,0 +1,12 @@
+# Chapter 5.31 of LFS 7.4
+# Installation of Tar
+cd $LFS/sources
+tar -xjf tar-1.26.tar.bz2
+cd tar-1.26
+sed -i -e '/gets is a/d' gnu/stdio.in.h
+./configure --prefix=/tools
+make
+make check
+make install
+cd ..
+rm -rf tar-1.26
