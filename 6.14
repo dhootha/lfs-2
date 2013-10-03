@@ -1,0 +1,15 @@
+# Chapter 6.14 of LFS 7.4
+# Installation of GMP
+cd /sources
+tar -xJf gmp-5.1.2.tar.xz
+cd gmp-5.1.2
+./configure --prefix=/usr --enable-cxx
+make
+make check 2>&1 | tee gmp-check-log
+awk '/tests passed/{total+=$2} ; END{print total}' gmp-check-log
+make install
+mkdir -v /usr/share/doc/gmp-5.1.2
+cp    -v doc/{isa_abi_headache,configuration} doc/*.html \
+         /usr/share/doc/gmp-5.1.2
+cd /sources
+rm -rf gmp-5.1.2

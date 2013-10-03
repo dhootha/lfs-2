@@ -1,0 +1,11 @@
+# Chapter 6.16 of LFS 7.4
+# Installation of MPC
+cd /sources
+tar -xzf mpc-1.0.1.tar.gz
+cd mpc-1.0.1
+./configure --prefix=/usr
+make
+make check
+make install
+cd /sources
+rm -rf mpc-1.0.1

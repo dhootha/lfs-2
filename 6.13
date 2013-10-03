@@ -1,0 +1,19 @@
+# Chapter 6.13 of LFS 7.4
+# Installation of Binutils
+cd /sources
+tar -xjf binutils-2.23.2.tar.bz2
+cd binutils-2.23.2
+rm -rf etc/standards.info
+sed -i.bak '/^INFO/s/standards.info //' etc/Makefile.in
+sed -i -e 's/@colophon/@@colophon/' \
+       -e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo
+mkdir -v ../binutils-build
+cd ../binutils-build
+../binutils-2.23.2/configure --prefix=/usr --enable-shared
+make tooldir=/usr
+make check
+make tooldir=/usr install
+cp -v ../binutils-2.23.2/include/libiberty.h /usr/include
+cd /sources
+rm -rf binutils-build
+rm -rf binutils-2.23.2
