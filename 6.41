@@ -1,0 +1,12 @@
+# Chapter 6.41 of LFS 7.4
+# Installation of Automake
+cd /sources
+tar -xJf automake-1.14.tar.xz
+cd automake-1.14
+patch -Np1 -i ../automake-1.14-test-1.patch
+./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.14
+make
+make check
+make install
+cd /sources
+rm -rf automake-1.14

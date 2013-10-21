@@ -1,0 +1,10 @@
+# Chapter 6.49 of LFS 7.4
+# Installation of Less
+cd /sources
+tar -xzf less-458.tar.gz
+cd less-458
+./configure --prefix=/usr --sysconfdir=/etc
+make
+make install
+cd /sources
+rm -rf less-458

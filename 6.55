@@ -1,0 +1,12 @@
+# Chapter 6.55 of LFS 7.4
+# Installation of Make
+cd /sources
+tar -xjf make-3.82.tar.bz2
+cd make-3.82
+patch -Np1 -i ../make-3.82-upstream_fixes-3.patch
+./configure --prefix=/usr
+make
+make check
+make install
+cd /sources
+rm -rf make-3.82

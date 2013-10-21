@@ -1,0 +1,17 @@
+# Chapter 6.33 of LFS 7.4
+# Installation of Readline-6.2
+cd /sources
+tar -xzf readline-6.2.tar.gz
+cd readline-6.2
+sed -i '/MV.*old/d' Makefile.in
+sed -i '/{OLDSUFF}/c:' support/shlib-install
+patch -Np1 -i ../readline-6.2-fixes-1.patch
+./configure --prefix=/usr --libdir=/lib
+make SHLIB_LIBS=-lncurses
+make install
+mv -v /lib/lib{readline,history}.a /usr/lib
+rm -v /lib/lib{readline,history}.so
+ln -sfv ../../lib/libreadline.so.6 /usr/lib/libreadline.so
+ln -sfv ../../lib/libhistory.so.6 /usr/lib/libhistory.so
+cd /sources
+rm -rf readline-6.2

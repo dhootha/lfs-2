@@ -1,0 +1,12 @@
+# Chapter 6.59 of LFS 7.4
+# Installation of Sysvinit
+cd /sources
+tar -xjf sysvinit-2.88dsf.tar.bz2
+cd sysvinit-2.88dsf
+sed -i 's@Sending processes@& configured via /etc/inittab@g' src/init.c
+sed -i -e '/utmpdump/d' \
+       -e '/mountpoint/d' src/Makefile
+make -C src
+make -C src install
+cd /sources
+rm -rf sysvinit-2.88dsf

@@ -1,0 +1,20 @@
+# Chapter 6.25 of LFS 7.4
+# Installation of Procps-ng-3.3.8
+cd /sources
+tar -xJf procps-ng-3.3.8.tar.xz
+cd procps-ng-3.3.8
+./configure --prefix=/usr                           \
+            --exec-prefix=                          \
+            --libdir=/usr/lib                       \
+            --docdir=/usr/share/doc/procps-ng-3.3.8 \
+            --disable-static                        \
+            --disable-skill                         \
+            --disable-kill
+make
+sed -i -r 's|(pmap_initname)\\\$|\1|' testsuite/pmap.test/pmap.exp
+make check
+make install
+mv -v /usr/lib/libprocps.so.* /lib
+ln -sfv ../../lib/libprocps.so.1.1.2 /usr/lib/libprocps.so
+cd /sources
+rm -rf procps-ng-3.3.8

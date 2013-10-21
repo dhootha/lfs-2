@@ -1,0 +1,13 @@
+# Chapter 6.23 of LFS 7.4
+# Installation of Util-linux
+cd /sources
+tar -xJf util-linux-2.23.2.tar.xz
+cd util-linux-2.23.2
+sed -i -e 's@etc/adjtime@var/lib/hwclock/adjtime@g' \
+    $(grep -rl '/etc/adjtime' .)
+mkdir -pv /var/lib/hwclock
+./configure --disable-su --disable-sulogin --disable-login
+make
+make install
+cd /sources
+rm -rf util-linux-2.23.2

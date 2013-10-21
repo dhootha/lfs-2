@@ -1,0 +1,18 @@
+# Chapter 8.3.1 of LFS 7.4
+# Linux-3.10.10 part 1 - Installation of the kernel
+# WARNING - THIS IS INTERACTIVE
+cd /sources
+tar -xJf linux-3.10.10.tar.xz
+cd linux-3.10.10/
+make mrproper
+make defconfig
+make LANG=en_US.UTF-8 LC_ALL= menuconfig
+make
+make modules_install
+cp -v arch/x86_64/boot/bzImage /boot/vmlinuz-3.10.10-lfs-7.4
+cp -v System.map /boot/System.map-3.10.10
+cp -v .config /boot/config-3.10.10
+install -d /usr/share/doc/linux-3.10.10
+cp -r Documentation/* /usr/share/doc/linux-3.10.10
+cd /sources
+rm -rf linux-3.10.10/

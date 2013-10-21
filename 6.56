@@ -1,0 +1,18 @@
+# Chapter 6.56 of LFS 7.4
+# Installation of Man-DB
+cd /sources
+tar -xJf man-db-2.6.5.tar.xz
+cd man-db-2.6.5
+./configure --prefix=/usr                         \
+            --libexecdir=/usr/lib                 \
+            --docdir=/usr/share/doc/man-db-2.6.5  \
+            --sysconfdir=/etc                     \
+            --disable-setuid                      \
+            --with-browser=/usr/bin/lynx          \
+            --with-vgrind=/usr/bin/vgrind         \
+            --with-grap=/usr/bin/grap
+make
+make check
+make install
+cd /sources
+rm -rf man-db-2.6.5

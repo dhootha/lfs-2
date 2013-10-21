@@ -1,0 +1,11 @@
+# Chapter 6.36 of LFS 7.4
+# Installation of Libtool
+cd /sources
+tar -xzf libtool-2.4.2.tar.gz
+cd libtool-2.4.2
+./configure --prefix=/usr
+make
+make check
+make install
+cd /sources
+rm -rf libtool-2.4.2

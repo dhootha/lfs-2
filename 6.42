@@ -1,0 +1,11 @@
+# Chapter 6.42 of LFS 7.4
+# Installation of Diffutils
+cd /sources
+tar -xJf diffutils-3.3.tar.xz
+cd diffutils-3.3
+./configure --prefix=/usr
+make
+make check
+make install
+cd /sources
+rm -rf diffutils-3.3

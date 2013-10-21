@@ -1,0 +1,9 @@
+# Chapter 6.28 of LFS 7.4
+# Installation of Iana-Etc
+cd /sources
+tar -xjf iana-etc-2.30.tar.bz2
+cd iana-etc-2.30
+make
+make install
+cd /sources
+rm -rf iana-etc-2.30

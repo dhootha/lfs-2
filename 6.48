@@ -1,0 +1,15 @@
+# Chapter 6.48 of LFS 7.4
+# Installation of GRUB
+cd /sources
+tar -xJf grub-2.00.tar.xz
+cd grub-2.00
+sed -i -e '/gets is a/d' grub-core/gnulib/stdio.in.h
+./configure --prefix=/usr           \
+            --sysconfdir=/etc       \
+            --disable-grub-emu-usb  \
+            --disable-efiemu        \
+            --disable-werror
+make
+make install
+cd /sources
+rm -rf grub-2.00

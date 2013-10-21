@@ -1,0 +1,15 @@
+# Chapter 6.44 of LFS 7.4
+# Installation of Findutils
+cd /sources
+tar -xzf findutils-4.4.2.tar.gz
+cd findutils-4.4.2
+./configure --prefix=/usr                   \
+            --libexecdir=/usr/lib/findutils \
+            --localstatedir=/var/lib/locate
+make
+make check
+make install
+mv -v /usr/bin/find /bin
+sed -i 's/find:=${BINDIR}/find:=\/bin/' /usr/bin/updatedb
+cd /sources
+rm -rf findutils-4.4.2

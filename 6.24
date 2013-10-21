@@ -1,0 +1,12 @@
+# Chapter 6.24 of LFS 7.4
+# Installation of Psmisc
+cd /sources
+tar -xzf psmisc-22.20.tar.gz
+cd psmisc-22.20
+./configure --prefix=/usr
+make
+make install
+mv -v /usr/bin/fuser    /bin
+mv -v /usr/bin/killall  /bin
+cd /sources
+rm -rf psmisc-22.20

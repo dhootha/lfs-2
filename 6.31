@@ -1,0 +1,11 @@
+# Chapter 6.31 of LFS 7.4
+# Installation of Bison
+cd /sources
+tar -xJf bison-3.0.tar.xz
+cd bison-3.0
+./configure --prefix=/usr
+make
+make check
+make install
+cd /sources
+rm -rf bison-3.0

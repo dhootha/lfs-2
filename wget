@@ -1,0 +1,13 @@
+# Building wget from BLFS
+# assumes everything's downloaded into /sources
+cd /sources
+tar -xJf wget-1.14.tar.xz
+cd wget-1.14
+patch -Np1 -i ../wget-1.14-texi2pod-1.patch &&
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --with-ssl=openssl &&
+make
+make install
+cd /sources
+rm -rf wget-1.14

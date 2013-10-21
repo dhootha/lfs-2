@@ -1,0 +1,11 @@
+# Chapter 6.40 of LFS 7.4
+# Installation of Autoconf
+cd /sources
+tar -xJf autoconf-2.69.tar.xz
+cd autoconf-2.69
+./configure --prefix=/usr
+make
+make check
+make install
+cd /sources
+rm -rf autoconf-2.69

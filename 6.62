@@ -1,0 +1,12 @@
+# Chapter 6.62 of LFS 7.4
+# Installation of Udev
+cd /sources
+tar -xJf systemd-206.tar.xz
+cd systemd-206
+tar -xvf ../udev-lfs-206-1.tar.bz2
+make -f udev-lfs-206-1/Makefile.lfs
+make -f udev-lfs-206-1/Makefile.lfs install
+build/udevadm hwdb --update
+bash udev-lfs-206-1/init-net-rules.sh
+cd /sources
+rm -rf systemd-206

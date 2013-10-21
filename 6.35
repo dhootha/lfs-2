@@ -1,0 +1,11 @@
+# Chapter 6.35 of LFS 7.4
+# Installation of BC
+cd /sources
+tar -xjf bc-1.06.95.tar.bz2
+cd bc-1.06.95
+./configure --prefix=/usr --with-readline
+make
+echo "quit" | ./bc/bc -l Test/checklib.b
+make install
+cd /sources
+rm -rf bc-1.06.95

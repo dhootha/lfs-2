@@ -1,0 +1,13 @@
+# Chapter 6.61 of LFS 7.4
+# Installation of Texinfo
+cd /sources
+tar -xJf texinfo-5.1.tar.xz
+cd texinfo-5.1
+patch -Np1 -i ../texinfo-5.1-test-1.patch
+./configure --prefix=/usr
+make
+make check
+make install
+make TEXMF=/usr/share/texmf install-tex
+cd /sources
+rm -rf texinfo-5.1

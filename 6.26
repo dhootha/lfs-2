@@ -1,0 +1,24 @@
+# Chapter 6.26 of LFS 7.4
+# Installation of E2fsprogs
+cd /sources
+tar -xzf e2fsprogs-1.42.8
+cd e2fsprogs-1.42.8
+sed -i -e 's/mke2fs/$MKE2FS/' -e 's/debugfs/$DEBUGFS/' tests/f_extent_oobounds/script
+mkdir -v build
+cd build
+../configure  --prefix=/usr         \
+              --with-root-prefix="" \
+              --enable-elf-shlibs   \
+              --disable-libblkid    \
+              --disable-libuuid     \
+              --disable-uuidd       \
+              --disable-fsck
+make
+make check
+make install
+make install-libs
+chmod -v u+w /usr/lib/{libcom_err,libe2p,libext2fs,libss}.a
+gunzip -v /usr/share/info/libext2fs.info.gz
+install-info --dir-file=/usr/share/info/dir /usr/share/info/libext2fs.info
+cd /sources
+rm -rf e2fsprogs-1.42.8

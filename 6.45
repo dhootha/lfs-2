@@ -1,0 +1,12 @@
+# Chapter 6.45 of LFS 7.4 
+# Installation of Gettext
+cd /sources
+tar -xzf gettext-0.18.3.tar.gz
+cd gettext-0.18.3
+./configure --prefix=/usr \
+            --docdir=/usr/share/doc/gettext-0.18.3
+make
+make check
+make install
+cd /sources
+rm -rf gettext-0.18.3

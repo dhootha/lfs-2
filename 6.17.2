@@ -1,0 +1,9 @@
+# Chapter 6.17 of LFS 7.4
+# Installation of GCC 
+# Second part, after tests
+cd /sources/gcc-build
+make install
+ln -sv ../usr/bin/cpp /lib
+ln -sv gcc /usr/bin/cc
+mkdir -pv /usr/share/gdb/auto-load/usr/lib
+mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib

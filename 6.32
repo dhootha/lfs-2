@@ -1,0 +1,11 @@
+# Chapter 6.32 of LFS 7.4
+# Installation of Grep
+cd /sources
+tar -xJf grep-2.14.tar.xz
+cd grep-2.14
+./configure --prefix=/usr --bindir=/bin
+make
+make check
+make install
+cd /sources
+rm -rf grep-2.14

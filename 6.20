@@ -1,0 +1,14 @@
+# Chapter 6.20 of LFS 7.4
+# Installation of Pkg-config
+cd /sources
+tar -xzf pkg-config-0.28.tar.gz
+cd pkg-config-0.28
+./configure --prefix=/usr         \
+            --with-internal-glib  \
+            --disable-host-tool   \
+            --docdir=/usr/share/doc/pkg-config-0.28
+make
+make check
+make install
+cd /sources
+rm -rf pkg-config-0.28

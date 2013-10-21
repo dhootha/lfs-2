@@ -1,0 +1,14 @@
+# Chapter 6.51 of LFS 7.4
+# Installation of IPRoute2
+cd /sources
+tar -xJf iproute2-3.10.0.tar.xz
+cd iproute2-3.10.0
+sed -i '/^TARGETS/s@arpd@@g' misc/Makefile
+sed -i /ARPD/d Makefile
+sed -i 's/arpd.8//' man/man8/Makefile
+make DESTDIR=
+make DESTDIR=               \
+     MANDIR=/usr/share/man  \
+     DOCDIR=/usr/share/doc/iproute2-3.10.0 install
+cd /sources
+rm -rf iproute2-3.10.0

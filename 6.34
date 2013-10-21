@@ -1,0 +1,16 @@
+# Chapter 6.34 of LFS 7.4
+# Installation of Bash
+cd /sources
+tar -xzf bash-4.2.tar.gz
+cd bash-4.2
+patch -Np1 -i ../bash-4.2-fixes-12.patch
+./configure --prefix=/usr                     \
+            --bindir=/bin                     \
+            --htmldir=/usr/share/doc/bash-4.2 \
+            --without-bash-malloc             \
+            --with-installed-readline
+make
+chown -Rv nobody .
+su nobody -s /bin/bash -c "PATH=$PATH make test"
+make install
+exec /bin/bash --login +h

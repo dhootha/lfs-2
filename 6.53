@@ -1,0 +1,21 @@
+# Chapter 6.53 of LFS 7.4
+# Installation of Kmod
+cd /sources
+tar -xJf kmod-14.tar.xz
+cd kmod-14
+./configure --prefix=/usr       \
+            --bindir=/bin       \
+            --libdir=/lib       \
+            --sysconfdir=/etc   \
+            --disable-manpages  \
+            --with-xz           \
+            --with-zlib
+make
+make check
+make pkgconfdir=/usr/lib/pkgconfig install
+for target in depmod insmod modinfo modprobe rmmod; do
+  ln -sv ../bin/kmod /sbin/$target
+done
+ln -sv kmod /bin/lsmod
+cd /sources
+rm -rf kmod-14

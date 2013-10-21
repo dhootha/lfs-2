@@ -1,0 +1,9 @@
+# Chapter 7.13 of LFS 7.4
+# The Bash Shell Startup Files (/etc/profile)
+cat > /etc/profile << "EOF"
+# Begin /etc/profile
+
+export LANG=en_US
+
+# End /etc/profile
+EOF

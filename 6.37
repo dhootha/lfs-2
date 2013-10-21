@@ -1,0 +1,11 @@
+# Chapter 6.37 of LFS 7.4
+# Installation of GDBM
+cd /sources
+tar -xzf gdbm-1.10.tar.gz
+cd gdbm-1.10
+./configure --prefix=/usr --enable-libgdbm-compat
+make
+make check
+make install
+cd /sources
+rm -rf gdbm-1.10

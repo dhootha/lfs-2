@@ -1,0 +1,23 @@
+# Chapter 6.30 of LFS 7.4
+# Installation of Flex
+cd /sources
+tar -xjf flex-2.5.37.tar.bz2
+cd flex-2.5.37
+sed -i -e '/test-bison/d' tests/Makefile.in
+./configure --prefix=/usr \
+            --docdir=/usr/share/doc/flex-2.5.37
+make
+make check
+make install
+ln -sv libfl.a /usr/lib/libl.a
+cat > /usr/bin/lex << "EOF"
+#!/bin/sh
+# Begin /usr/bin/lex
+
+exec /usr/bin/flex -l "$@"
+
+# End /usr/bin/lex
+EOF
+chmod -v 755 /usr/bin/lex
+cd /sources
+rm -rf flex-2.5.37
