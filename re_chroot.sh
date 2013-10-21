@@ -1,4 +1,6 @@
 # A little script to re-enter the LFS chroot
+# ...to be run as root...
+export LFS=/mnt/lfs
 mount -v --bind /dev $LFS/dev
 mount -vt devpts devpts $LFS/dev/pts -o gid=5,mode=620
 mount -vt proc proc $LFS/proc
